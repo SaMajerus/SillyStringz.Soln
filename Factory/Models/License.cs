@@ -5,16 +5,16 @@ namespace Factory.Models
 { 
   public class License 
   { 
-    // public License() 
-    // { 
-    //   this.JoinSmstrSprt = new HashSet<LicenseSport>(); 
-    //   this.JoinSmstrPlyr = new HashSet<LicensePlayer>(); 
-    // } 
+    public License() 
+    { 
+      this.JoinLicEngr = new HashSet<LicenseEngineer>(); 
+      this.JoinLicMach = new HashSet<LicenseMachine>(); 
+    } 
     
     public int LicenseId { get; set; } 
-    // public int EngrId_Engineer { get; set; } 
+    // public int EngrId_Engineer { get; set; }  //Stores value of 'EngrId' field of a given Engineer. 
     public string Title { get; set; } 
-    // public virtual ICollection<LicenseSport> JoinSmstrSprt { get; set; } 
-    // public virtual ICollection<LicensePlayer> JoinSmstrPlyr { get; set; } 
+    public virtual ICollection<LicenseEngineer> JoinLicEngr { get; set; } 
+    public virtual ICollection<LicenseMachine> JoinLicMach { get; set; } 
   } 
 } 

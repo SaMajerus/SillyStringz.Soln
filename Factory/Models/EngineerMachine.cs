@@ -2,7 +2,7 @@ namespace Factory.Models
 {
   public class EngineerMachine
   {       
-    public int EngineerMachineId { get; set; }
+    public int EngrMachineId { get; set; }
     public int MachineId { get; set; }
     public int EngrId { get; set; }
     public virtual Machine Machine { get; set; }
