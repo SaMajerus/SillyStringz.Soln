@@ -11,9 +11,9 @@ namespace Factory.Models
       this.JoinLicMach = new HashSet<LicenseMachine>(); 
     } 
 
-    public int MachineId { get; set; } 
+    public int MachineId { get; set; }  //Properties named 'Id' or 'typenameId' are automatically recognized as Primary Keys.
     public string Name { get; set; } 
-    // public int EngrId_Engineer { get; set; }  //Stores value of 'EngrId' field of a given Engineer. 
+    public int EngrId { get; set; }  //Stores value of 'EngineerId' field of a given Engineer. 
     public virtual ICollection<EngineerMachine> JoinMachEngr { get; set; } 
     public virtual ICollection<LicenseMachine> JoinLicMach { get; set; } 
   } 

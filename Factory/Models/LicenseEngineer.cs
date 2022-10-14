@@ -2,7 +2,7 @@ namespace Factory.Models
 {
   public class LicenseEngineer
   { 
-    public int LicenseEngrId { get; set; }
+    public int LicenseEngineerId { get; set; }  //Properties named 'Id' or 'typenameId' are automatically recognized as Primary Keys.
     public int LicenseId { get; set; }
     public int EngrId { get; set; }
     public virtual License License { get; set; }
