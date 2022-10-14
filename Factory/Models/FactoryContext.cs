@@ -5,12 +5,12 @@ namespace Factory.Models
   public class FactoryContext : DbContext
   {
 
-    public DbSet<Player> Players { get; set;}
-    public DbSet<Sport> Sports { get; set; }
-    public DbSet<Semester> Semesters { get; set; }
-    public DbSet<SemesterSport> SemesterSport { get; set; }
-    public DbSet<SportPlayer> SportPlayer { get; set; }
-    public DbSet<SemesterPlayer> SemesterPlayer { get; set; }
+    public DbSet<Machine> Machines { get; set;}
+    public DbSet<Engineer> Engineers { get; set; }
+    public DbSet<License> Licenses { get; set; }
+    public DbSet<LicenseEngineer> LicenseEngineer { get; set; }
+    public DbSet<EngineerMachine> EngineerMachine { get; set; }
+    public DbSet<LicenseMachine> LicenseMachine { get; set; }
 
     public FactoryContext(DbContextOptions options) : base(options) { }
 
