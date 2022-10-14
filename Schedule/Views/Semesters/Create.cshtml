@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="~/css/edit.css">
+@{
+  Layout = "_Layout";
+}
+
+@model Schedule.Models.Semester
+
+<h4>Add a semester</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Term)
+  @Html.TextBoxFor(model => model.Term)
+
+  <input type="submit" value="Add new semester" />
+}
+<p>@Html.ActionLink("Show all semesters", "Index")</p>

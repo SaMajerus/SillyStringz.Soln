@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="~/css/edit.css">
+@{
+  Layout = "_Layout";
+}
+
+@model Schedule.Models.Sport
+
+<h4>Add a new Sport</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Title)
+  @Html.TextBoxFor(model => model.Title)
+
+  <input type="submit" value="Add new sport" />
+}
+
+<p>@Html.ActionLink("Show all sports", "Index")</p>
