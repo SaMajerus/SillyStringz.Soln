@@ -13,7 +13,7 @@ namespace Factory.Models
     
     public int LicenseId { get; set; } 
     // public int EngrId_Engineer { get; set; } 
-    // public string Term { get; set; } 
+    public string Title { get; set; } 
     // public virtual ICollection<LicenseSport> JoinSmstrSprt { get; set; } 
     // public virtual ICollection<LicensePlayer> JoinSmstrPlyr { get; set; } 
   } 
