@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Schedule.Models
+namespace Factory.Models
 {
-  public class ScheduleContext : DbContext
+  public class FactoryContext : DbContext
   {
 
     public DbSet<Player> Players { get; set;}
@@ -12,7 +12,7 @@ namespace Schedule.Models
     public DbSet<SportPlayer> SportPlayer { get; set; }
     public DbSet<SemesterPlayer> SemesterPlayer { get; set; }
 
-    public ScheduleContext(DbContextOptions options) : base(options) { }
+    public FactoryContext(DbContextOptions options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
