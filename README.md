@@ -121,7 +121,7 @@ Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your username and passw
 
 
 ## Known Bugs
-* When a client object is deleted from the Clients list, their old ClientId integer is not freed up for use by a new client. (It doesn't affect the performance of the program, but could potentially create duplicate entries in the Clients Table.) 
+* When one tries to do the command 'dotnet ef migrations add Initial', the Build succeeds but throws an error about the "entity" 'Engineer' not having a primary key defined. (To be solved -- will be a while though, unless an expert can help me out; the error messaging doesn't give me meaningful, helpful info about a fix [i.e. which file do I need to go to in order to make the required changes, etc].) 
 <br>
 
 
