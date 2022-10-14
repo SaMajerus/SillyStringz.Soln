@@ -5,17 +5,17 @@
 
 <div class="box"></div>
 
-@using Schedule.Models;
-@model List<Schedule.Models.Sport>;
+@using Factory.Models;
+@model List<Factory.Models.Engineer>;
 
-<h1>List of Sports:</h1><br>
+<h1>List of Engineers:</h1><br>
 
 <ul>
-  @foreach(Sport sport in Model)
+  @foreach(Engineer engineer in Model)
   {
-    <li>@Html.ActionLink($"{sport.Title}", "Details", new { id = sport.SportId })</li><br>
+    <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngrId })</li><br>
   }
 </ul>
 
-<p>@Html.ActionLink("Add new sport", "Create")</p><br>
+<p>@Html.ActionLink("Add new engineer", "Create")</p><br>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

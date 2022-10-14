@@ -3,20 +3,20 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Sport
+@model Factory.Models.Engineer
 
 <h2>Edit</h2>
 
-<h4>Edit this sport: @Html.DisplayFor(model => model.Title)</h4>
+<h4>Edit this engineer: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.SportId)
+  @Html.HiddenFor(model => model.EngrId)
 
-  @Html.LabelFor(model => model.Title)
-  @Html.EditorFor(model => model.Title)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
 
   <input type="submit" value="Save" />
 }
 <p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Add Semester", "AddSemester", new {id = Model.SportId})</p>
+<p>@Html.ActionLink("Add License", "AddLicense", new {id = Model.EngrId})</p>

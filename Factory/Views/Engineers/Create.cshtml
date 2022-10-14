@@ -3,15 +3,15 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Sport
+@model Factory.Models.Engineer
 
-<h4>Add a new Sport</h4>
+<h4>Add a new Engineer</h4>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Title)
-  @Html.TextBoxFor(model => model.Title)
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
 
-  <input type="submit" value="Add new sport" />
+  <input type="submit" value="Add new engineer" />
 }
 
-<p>@Html.ActionLink("Show all sports", "Index")</p>
+<p>@Html.ActionLink("Show all engineers", "Index")</p>
