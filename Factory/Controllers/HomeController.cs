@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Schedule.Controllers
+namespace Factory.Controllers
 {
     public class HomeController : Controller
     {
