@@ -32,6 +32,9 @@ The Vendors list will start off blank, so the user has to create a new vendor be
 Note that this application is the Minimum-Viable-Product iteration, and so features are minimal. 
 
 
+Resources I found to be helpful whilst developing this application-- 
+* [Configuring a Primary Key - Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/keys?tabs=data-annotations#configuring-a-primary-key)
+
 
 ## Setup/Installation Requirements
 
@@ -121,7 +124,7 @@ Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your username and passw
 
 
 ## Known Bugs
-* When one tries to do the command 'dotnet ef migrations add Initial', the Build succeeds but throws an error about the "entity" 'Engineer' not having a primary key defined. (To be solved -- will be a while though, unless an expert can help me out; the error messaging doesn't give me meaningful, helpful info about a fix [i.e. which file do I need to go to in order to make the required changes, etc].) 
+* N/A 
 <br>
 
 
