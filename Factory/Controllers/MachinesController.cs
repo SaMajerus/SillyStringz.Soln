@@ -1,4 +1,3 @@
-/* 
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
@@ -24,19 +23,19 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.SportId = new SelectList(_db.Sports, "SportId", "Title");  //Connects to:  ../Views/Machines/Create.cshtml, Ln 18. 
-      ViewBag.SemesterId = new SelectList(_db.Semesters, "SemesterId", "Term");
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");  //Connects to:  ../Views/Machines/Create.cshtml, Ln 18. 
+      ViewBag.LicenseId = new SelectList(_db.Licenses, "LicenseId", "Title");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Machine player, int SportId)
+    public ActionResult Create(Machine mach, int EngineerId)
     {
-      _db.Machines.Add(player);
+      _db.Machines.Add(mach);
       _db.SaveChanges();
-      if (SportId != 0)
+      if (EngineerId != 0)
       {
-        _db.SportMachine.Add(new SportMachine() { SportId = SportId, MachineId = player.MachineId});
+        _db.EngineerMachine.Add(new EngineerMachine() { EngrId = EngineerId, MachineId = mach.MachineId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
@@ -45,45 +44,45 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       var thisMachine = _db.Machines
-        .Include(player => player.JoinPlrSprt)  //Details View, Ln 11 
-        .ThenInclude(join => join.Sport)  //Details View, Ln 19 
-        .Include(player => player.JoinSmstrPlyr)
-        .ThenInclude(join => join.Semester)
-        .FirstOrDefault(player => player.MachineId == id);
+        .Include(mach => mach.JoinMachEngr)  //Details View, Ln 11 
+        .ThenInclude(join => join.Engineer)  //Details View, Ln 19 
+        .Include(mach => mach.JoinLicMach)
+        .ThenInclude(join => join.License)
+        .FirstOrDefault(mach => mach.MachineId == id);
       return View(thisMachine);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(player => player.MachineId == id);
+      var thisMachine = _db.Machines.FirstOrDefault(mach => mach.MachineId == id);
       return View(thisMachine);
     }
 
     [HttpPost]
-    public ActionResult Edit(Machine player, int SportId)
+    public ActionResult Edit(Machine mach, int EngineerId)
     {
-      if (SportId != 0)
+      if (EngineerId != 0)
       {
-        _db.SportMachine.Add(new SportMachine() { SportId = SportId, MachineId = player.MachineId});
+        _db.EngineerMachine.Add(new EngineerMachine() { EngrId = EngineerId, MachineId = mach.MachineId});
       }
-      _db.Entry(player).State = EntityState.Modified;  //Updates the entry/-ies in the database. 
+      _db.Entry(mach).State = EntityState.Modified;  //Updates the entry(-ies) in the database. 
       _db.SaveChanges(); //Saves changes to database 
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddSport(int id)
+    public ActionResult AddEngineer(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(player => player.MachineId == id); 
-      ViewBag.SportId = new SelectList(_db.Sports, "SportId", "Title");  //Connects to:  ../Views/Machines/AddSport.cshtml, Ln 16. 
+      var thisMachine = _db.Machines.FirstOrDefault(mach => mach.MachineId == id); 
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");  //Connects to:  ../Views/Machines/AddEngineer.cshtml, Ln 16. 
       return View(thisMachine);
     }
 
-    [HttpPost]  //(Destination for Views/Machines/AddSport.cshtml, Ln 18) 
-    public ActionResult AddSport(Machine player, int SportId)
+    [HttpPost]  //(Destination for Views/Machines/AddEngineer.cshtml, Ln 18) 
+    public ActionResult AddEngineer(Machine mach, int EngineerId)
     {
-      if (SportId != 0)
+      if (EngineerId != 0)
       {
-        _db.SportMachine.Add(new SportMachine() { SportId = SportId, MachineId = player.MachineId});
+        _db.EngineerMachine.Add(new EngineerMachine() { EngrId = EngineerId, MachineId = mach.MachineId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
@@ -91,43 +90,43 @@ namespace Factory.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(player => player.MachineId == id);
+      var thisMachine = _db.Machines.FirstOrDefault(mach => mach.MachineId == id);
       return View(thisMachine);
     }
 
     [HttpPost, ActionName("Delete")]  //(Destination for Views/Machines/Delete.cshtml, Ln 12) 
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(player => player.MachineId == id);
+      var thisMachine = _db.Machines.FirstOrDefault(mach => mach.MachineId == id);
       _db.Machines.Remove(thisMachine);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     [HttpPost]
-    public ActionResult DeleteSport(int joinId)
-    {  //Removes the connection between Sport and a Machine. 
-      var joinEntry = _db.SportMachine.FirstOrDefault(entry => entry.SportMachineId == joinId);
-      _db.SportMachine.Remove(joinEntry);
+    public ActionResult DeleteEngineer(int joinId)
+    {  //Removes the connection between Engineer and a Machine. 
+      var joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+      _db.EngineerMachine.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    public ActionResult AddSemester(int id)
+    public ActionResult AddLicense(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(player => player.MachineId == id); 
-      ViewBag.SemesterId = new SelectList(_db.Semesters, "SemesterId", "Term");
+      var thisMachine = _db.Machines.FirstOrDefault(mach => mach.MachineId == id); 
+      ViewBag.LicenseId = new SelectList(_db.Licenses, "LicenseId", "Title");
       return View(thisMachine);
     }
 
     [HttpPost]
-    public ActionResult AddSemester(Machine player, int SemesterId)
+    public ActionResult AddLicense(Machine mach, int LicenseId)
     {
-      if (SemesterId != 0)
+      if (LicenseId != 0)
       {
-        _db.SemesterMachine.Add(new SemesterMachine() { SemesterId = SemesterId, MachineId = player.MachineId});
+        _db.LicenseMachine.Add(new LicenseMachine() { LicenseId = LicenseId, MachineId = mach.MachineId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
     }
   }
-} */
+} 

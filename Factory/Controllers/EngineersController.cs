@@ -1,4 +1,3 @@
-/* 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
@@ -26,15 +25,15 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.PlayerId = new SelectList(_db.Players, "PlayerId", "Name");
-      ViewBag.SemesterId = new SelectList(_db.Semesters, "SemesterId", "Term");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      ViewBag.LicenseId = new SelectList(_db.Licenses, "LicenseId", "Title");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Engineer sport, string title)
+    public ActionResult Create(Engineer engineer, string name)
     {
-      _db.Engineers.Add(sport);
+      _db.Engineers.Add(engineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -42,77 +41,77 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
-        .Include(semester => semester.JoinSmstrSprt)
-        .ThenInclude(join => join.Semester)  //Connected to:  Details View, Ln 25 
-        .Include(sport => sport.JoinPlrSprt)
-        .ThenInclude(join => join.Player)  //Connected to:  Details View, Ln 10 
-        .FirstOrDefault(sport => sport.EngineerId == id);
+        .Include(semester => semester.JoinLicEngr)
+        .ThenInclude(join => join.License)  //Connected to:  Details View, Ln 25 
+        .Include(engineer => engineer.JoinMachEngr)
+        .ThenInclude(join => join.Machine)  //Connected to:  Details View, Ln 10 
+        .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(sport => sport.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
     [HttpPost]
-    public ActionResult Edit(Engineer sport)
+    public ActionResult Edit(Engineer engineer)
     {
-      _db.Entry(sport).State = EntityState.Modified;
+      _db.Entry(engineer).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(sport => sport.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(sport => sport.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       _db.Engineers.Remove(thisEngineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
     
-    public ActionResult AddPlayer(int id)
+    public ActionResult AddMachine(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(sport => sport.EngineerId == id);  //Calls the Engineer which we'll be adding a Player for. 
-      ViewBag.PlayerId = new SelectList(_db.Players, "PlayerId", "Name");  //Connects to:  ../Views/Engineers/AddPlayer.cshtml, Ln 16. 
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);  //Calls the Engineer which we'll be adding a Machine for. 
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");  //Connects to:  ../Views/Engineers/AddMachine.cshtml, Ln 16. 
       return View(thisEngineer); 
     }
 
     [HttpPost]
-    public ActionResult AddPlayer(Engineer sport, int PlayerId)
+    public ActionResult AddMachine(Engineer engineer, int MachineId)
     {
-      if (PlayerId != 0)
+      if (MachineId != 0)
       {
-        _db.EngineerPlayer.Add(new EngineerPlayer() { PlayerId = PlayerId, EngineerId = sport.EngineerId});
+        _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngrId = engineer.EngineerId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddSemester(int id)
+    public ActionResult AddLicense(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(sport => sport.EngineerId == id);  //Calls the Engineer which we'll be adding a Semester for. 
-      ViewBag.SemesterId = new SelectList(_db.Semesters, "SemesterId", "Term");  //Connects to:  ../Views/Engineers/AddSemester.cshtml, Ln 16. 
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);  //Calls the Engineer which we'll be adding a License for. 
+      ViewBag.LicenseId = new SelectList(_db.Licenses, "LicenseId", "Title");  //Connects to:  ../Views/Engineers/AddLicense.cshtml, Ln 16. 
       return View(thisEngineer);
     }
 
     [HttpPost]
-    public ActionResult AddSemester(Engineer sport, int SemesterId)
+    public ActionResult AddLicense(Engineer engineer, int LicenseId)
     {
-      if (SemesterId != 0)
+      if (LicenseId != 0)
       {
-        _db.SemesterEngineer.Add(new SemesterEngineer() { SemesterId = SemesterId, EngineerId = sport.EngineerId});
+        _db.LicenseEngineer.Add(new LicenseEngineer() { LicenseId = LicenseId, EngrId = engineer.EngineerId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
     }
   }
-} */
+} 

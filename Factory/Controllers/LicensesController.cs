@@ -1,4 +1,3 @@
-/*
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Collections.Generic;
@@ -25,16 +24,16 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.EngrId = new SelectList(_db.Engineers, "EngrId", "Title");  //Connects to:  ../Views/Licenses/Create.cshtml, Ln 14.
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Title");  //Connects to:  ../Views/Licenses/Create.cshtml, Ln 14.
       return View();
     }
 
     [HttpPost]  //(Destination for Views/Licenses/Create.cshtml, Ln 16) 
-    public ActionResult Create(License license, string term, int LicenseId, int EngrId)
+    public ActionResult Create(License license, string term, int LicenseId, int EngineerId)
     {
-      if (EngrId != 0)
+      if (EngineerId != 0)
       {
-        _db.LicenseEngineer.Add(new LicenseEngineer() { EngrId = EngrId, LicenseId = license.LicenseId });
+        _db.LicenseEngineer.Add(new LicenseEngineer() { EngrId = EngineerId, LicenseId = license.LicenseId });
         _db.SaveChanges();
       }
       _db.Licenses.Add(license);
@@ -45,9 +44,9 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       var thisLicense = _db.Licenses
-        .Include(license => license.JoinSmstrSprt)  //Details View, Ln 10
+        .Include(license => license.JoinLicEngr)  //Details View, Ln 10
         .ThenInclude(join => join.Engineer)  //Details View, Ln 20 
-        .Include(license => license.JoinSmstrPlyr)
+        .Include(license => license.JoinLicMach)
         .ThenInclude(join => join.Machine)
         .FirstOrDefault(license => license.LicenseId == id);
       return View(thisLicense);
@@ -85,16 +84,16 @@ namespace Factory.Controllers
     public ActionResult AddEngineer(int id)
     {
       var thisLicense = _db.Licenses.FirstOrDefault(license => license.LicenseId == id);  //Calls the license which we'll be adding a Engineer for. 
-      ViewBag.EngrId = new SelectList(_db.Engineers, "EngrId", "Title");
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Title");
       return View(thisLicense);
     }
 
     [HttpPost]
-    public ActionResult AddEngineer(License license, int EngrId)
+    public ActionResult AddEngineer(License license, int EngineerId)
     {
-      if (EngrId != 0)
+      if (EngineerId != 0)
       {
-        _db.LicenseEngineer.Add(new LicenseEngineer() { EngrId = EngrId, LicenseId = license.LicenseId});
+        _db.LicenseEngineer.Add(new LicenseEngineer() { EngrId = EngineerId, LicenseId = license.LicenseId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
@@ -117,4 +116,4 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
   }
-} */
+} 
