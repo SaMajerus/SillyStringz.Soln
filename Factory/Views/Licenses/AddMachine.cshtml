@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="~/css/edit.css">
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.License
+
+<h2>Add a machine</h2>
+
+<h4>Add a machine for this License: @Html.DisplayFor(model => model.Term)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.LicenseId)
+
+  @Html.Label("Select machine")
+  @Html.DropDownList("MachineId")
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
