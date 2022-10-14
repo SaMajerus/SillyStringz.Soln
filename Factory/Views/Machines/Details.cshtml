@@ -9,7 +9,7 @@
 <h3>Machine Name: @Html.DisplayFor(model => model.Name)</h3>
 @* <h3>Machine Grade: @Html.DisplayFor(model => model.Grade)</h3> *@
 
-@if(@Model.JoinPlrSprt.Count == 0)
+@if(@Model.JoinMachEngr.Count == 0)
 {
   <p>This machine is not assigned to any engineers</p>
 }
@@ -17,7 +17,7 @@ else
 {
   <h4>Engineers assigned to this machine:</h4>
   <ul>
-  @foreach(var join in Model.JoinPlrSprt)
+  @foreach(var join in Model.JoinMachEngr)
   {
     <li>@join.Engineer.Name</li>
 
@@ -29,7 +29,7 @@ else
   }
   </ul>
 }
-@if(@Model.JoinSmstrPlyr.Count == 0)
+@if(@Model.JoinLicMach.Count == 0)
 {
   <p>This machine is not covered by any License</p>
 }
@@ -37,7 +37,7 @@ else
 {
   <h4>License for this machine:</h4>
   <ul>
-  @foreach(var join in Model.JoinSmstrPlyr)
+  @foreach(var join in Model.JoinLicMach)
   {
     <li>@join.License.Title</li>
 

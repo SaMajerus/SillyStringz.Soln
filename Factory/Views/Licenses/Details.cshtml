@@ -8,7 +8,7 @@
 <h2>License Details</h2>
 <h3>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</h3>
 
-@if(@Model.JoinSmstrSprt.Count == 0)
+@if(@Model.JoinLicEngr.Count == 0)
 {
   <p>This license has no engineers</p>
 }
@@ -16,13 +16,13 @@ else
 {
   <h4>Engineers who have this license:</h4>
   <ul>
-  @foreach(var join in Model.JoinSmstrSprt)
+  @foreach(var join in Model.JoinLicEngr)
   {
     <li>@join.Engineer.Title</li>
   }
   </ul>
 }
-@if(@Model.JoinSmstrPlyr.Count == 0)
+@if(@Model.JoinLicMach.Count == 0)
 {
   <p>This license has no machines</p>
 }
@@ -30,7 +30,7 @@ else
 {
   <h4>Machines covered by this license:</h4>
   <ul>
-  @foreach(var join in Model.JoinSmstrPlyr)
+  @foreach(var join in Model.JoinLicMach)
   {
     <li>@join.Machine.Name</li>
   }

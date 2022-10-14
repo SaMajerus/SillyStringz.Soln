@@ -8,7 +8,7 @@
 <h2>Engineer Details</h2>
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
-@if(@Model.JoinPlrSprt.Count == 0)
+@if(@Model.JoinMachEngr.Count == 0)
 {
   <p>There are no machines assigned to this engineer</p>
 }
@@ -16,14 +16,14 @@ else
 {
   <h4>This engineer's list of assigned machines:</h4>
   <ul>
-  @foreach(var join in Model.JoinPlrSprt)
+  @foreach(var join in Model.JoinMachEngr)
   {
     <li>@join.Machine.Name</li>
   }
   </ul>
 }
 
-@if(@Model.JoinSmstrSprt.Count == 0)
+@if(@Model.JoinLicEngr.Count == 0)
 {
   <p>This engineer currently does not have a License</p>
 }
@@ -31,7 +31,7 @@ else
 {
   <h4>This engineer's license(s):</h4>
   <ul>
-  @foreach(var join in Model.JoinSmstrSprt)
+  @foreach(var join in Model.JoinLicEngr)
   {
     <li>@join.License.Title</li>
   }
