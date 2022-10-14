@@ -3,21 +3,21 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Player
+@model Factory.Models.Machine
 
 <h2>Edit</h2>
 
-<h4>Edit this player: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Edit this machine: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.PlayerId)
+  @Html.HiddenFor(model => model.MachineId)
 
-  @Html.Label("", "Change Player Name", new {@class="labelfor"})
+  @Html.Label("", "Change Machine Name", new {@class="labelfor"})
   @Html.EditorFor(model => model.Name)
   
-  @Html.Label("Change player grade")
-  @Html.EditorFor(model => model.Grade)
+  @* @Html.Label("Change machine grade")
+  @Html.EditorFor(model => model.Grade) *@
 
   <input type="submit" value="Save" />
 }

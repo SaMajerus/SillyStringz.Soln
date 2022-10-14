@@ -3,11 +3,11 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Player
+@model Factory.Models.Machine
 
-<h2>Are you sure you want to delete this Player?</h2>
+<h2>Are you sure you want to delete this Machine?</h2>
 
-@Html.DisplayName("Player Name"): @Html.DisplayFor(model => model.Name)
+@Html.DisplayName("Machine Name"): @Html.DisplayFor(model => model.Name)
 @using (Html.BeginForm())
 {
     <input type="submit" value="Delete" />

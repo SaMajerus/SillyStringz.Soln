@@ -3,18 +3,18 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Player
+@model Factory.Models.Machine
 
-<h4>Add a new player</h4>
+<h4>Add a new machine</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.Label("Player Name")
+  @Html.Label("Machine Name")
   @Html.TextBoxFor(model => model.Name)
 
-  @Html.Label("Player Grade")
-  @Html.TextBoxFor(model => model.Grade)
+  @* @Html.Label("Machine Grade")
+  @Html.TextBoxFor(model => model.Grade) *@
 
-  <input type="submit" value="Add new player" class="btn btn-default" />
+  <input type="submit" value="Add new machine" class="btn btn-default" />
 }
-<p>@Html.ActionLink("Show all players", "Index")</p>
+<p>@Html.ActionLink("Show all machines", "Index")</p>

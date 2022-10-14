@@ -3,27 +3,27 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Player
+@model Factory.Models.Machine
 
-<h2>Player Details</h2>
-<h3>Player Name: @Html.DisplayFor(model => model.Name)</h3>
-<h3>Player Grade: @Html.DisplayFor(model => model.Grade)</h3>
+<h2>Machine Details</h2>
+<h3>Machine Name: @Html.DisplayFor(model => model.Name)</h3>
+@* <h3>Machine Grade: @Html.DisplayFor(model => model.Grade)</h3> *@
 
 @if(@Model.JoinPlrSprt.Count == 0)
 {
-  <p>This player is not playing any sports</p>
+  <p>This machine is not assigned to any engineers</p>
 }
 else
 {
-  <h4>Sports for this player:</h4>
+  <h4>Engineers assigned to this machine:</h4>
   <ul>
   @foreach(var join in Model.JoinPlrSprt)
   {
-    <li>@join.Sport.Title</li>
+    <li>@join.Engineer.Name</li>
 
-    @using (Html.BeginForm("DeleteSport", "Players"))
+    @using (Html.BeginForm("DeleteEngineer", "Machines"))
     {
-      @Html.Hidden("joinId", @join.SportId)
+      @Html.Hidden("joinId", @join.EngrId)
       <input type="submit" value="Delete"/>
     }
   }
@@ -31,19 +31,19 @@ else
 }
 @if(@Model.JoinSmstrPlyr.Count == 0)
 {
-  <p>This player is not included in any Semester</p>
+  <p>This machine is not covered by any License</p>
 }
 else
 {
-  <h4>Semester for this player:</h4>
+  <h4>License for this machine:</h4>
   <ul>
   @foreach(var join in Model.JoinSmstrPlyr)
   {
-    <li>@join.Semester.Term</li>
+    <li>@join.License.Title</li>
 
-    @using (Html.BeginForm("DeleteSemester", "Players"))
+    @using (Html.BeginForm("DeleteLicense", "Machines"))
     {
-      @Html.Hidden("joinId", @join.SemesterId)
+      @Html.Hidden("joinId", @join.LicenseId)
       <input type="submit" value="Delete"/>
     }
   }
@@ -51,7 +51,7 @@ else
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Player", "Edit", new { id = Model.PlayerId })</p>
-<p>@Html.ActionLink("Delete Player", "Delete", new { id = Model.PlayerId })</p>
-<p>@Html.ActionLink("Add a Sport", "AddSport", new { id = Model.PlayerId })</p>
-<p>@Html.ActionLink("Add a Semester", "AddSemester", new { id = Model.PlayerId})</p>
+<p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Add a Engineer", "AddEngineer", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Add a License", "AddLicense", new { id = Model.MachineId})</p>
