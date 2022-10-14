@@ -1,3 +1,4 @@
+/* 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
@@ -114,4 +115,4 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
   }
-}
+} */
