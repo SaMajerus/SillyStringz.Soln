@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace Schedule.Models
+namespace Factory.Models
 {
   public class Sport
   {

@@ -1,4 +1,4 @@
-namespace Schedule.Models
+namespace Factory.Models
 {
   public class SemesterSport
   {  
