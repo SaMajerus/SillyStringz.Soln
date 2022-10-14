@@ -3,42 +3,42 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Semester;
+@model Factory.Models.License;
 
-<h2>Semester Details</h2>
-<h3>@Html.DisplayNameFor(model => model.Term): @Html.DisplayFor(model => model.Term)</h3>
+<h2>License Details</h2>
+<h3>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</h3>
 
 @if(@Model.JoinSmstrSprt.Count == 0)
 {
-  <p>This semester has no sports</p>
+  <p>This license has no engineers</p>
 }
 else
 {
-  <h4>Sports being played this semester:</h4>
+  <h4>Engineers who have this license:</h4>
   <ul>
   @foreach(var join in Model.JoinSmstrSprt)
   {
-    <li>@join.Sport.Title</li>
+    <li>@join.Engineer.Title</li>
   }
   </ul>
 }
 @if(@Model.JoinSmstrPlyr.Count == 0)
 {
-  <p>This semester has no players</p>
+  <p>This license has no machines</p>
 }
 else
 {
-  <h4>Players in this semester:</h4>
+  <h4>Machines covered by this license:</h4>
   <ul>
   @foreach(var join in Model.JoinSmstrPlyr)
   {
-    <li>@join.Player.Name</li>
+    <li>@join.Machine.Name</li>
   }
   </ul>
 }
 
-<p>@Html.ActionLink("Back to Semesters", "Index")</p>
-<p>@Html.ActionLink("Edit Semester", "Edit", new { id = Model.SemesterId })</p>
-<p>@Html.ActionLink("Delete Semester", "Delete", new { id = Model.SemesterId })</p>
-<p>@Html.ActionLink("Add a Sport", "AddSport", new { id = Model.SemesterId })</p>
-<p>@Html.ActionLink("Add a Player", "AddPlayer", new { id = Model.SemesterId })</p>
+<p>@Html.ActionLink("Back to Licenses", "Index")</p>
+<p>@Html.ActionLink("Edit License", "Edit", new { id = Model.LicenseId })</p>
+<p>@Html.ActionLink("Delete License", "Delete", new { id = Model.LicenseId })</p>
+<p>@Html.ActionLink("Add an Engineer", "AddEngineer", new { id = Model.LicenseId })</p>
+<p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.LicenseId })</p>

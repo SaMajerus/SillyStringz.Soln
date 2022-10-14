@@ -3,11 +3,11 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Semester
+@model Factory.Models.License
 
 <h2>Are you sure you want to delete this?</h2>
 
-@Html.DisplayNameFor(model => model.Term): @Html.DisplayFor(model => model.Term)
+@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)
 @using (Html.BeginForm())
 {
   <input type="submit" value="Delete" />

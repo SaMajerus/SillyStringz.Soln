@@ -3,14 +3,14 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Semester
+@model Factory.Models.License
 
-<h4>Add a semester</h4>
+<h4>Add a license</h4>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Term)
-  @Html.TextBoxFor(model => model.Term)
+  @Html.LabelFor(model => model.Title)
+  @Html.TextBoxFor(model => model.Title)
 
-  <input type="submit" value="Add new semester" />
+  <input type="submit" value="Add new license" />
 }
-<p>@Html.ActionLink("Show all semesters", "Index")</p>
+<p>@Html.ActionLink("Show all licenses", "Index")</p>

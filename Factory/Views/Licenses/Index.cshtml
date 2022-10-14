@@ -5,17 +5,17 @@
 
 <div class="box"></div>
 
-@using Schedule.Models;
-@model List<Schedule.Models.Semester>;
+@using Factory.Models;
+@model List<Factory.Models.License>;
 
-<h1>Semesters</h1><br>
+<h1>Licenses</h1><br>
 
 <ul>
-  @foreach(Semester semester in Model)
+  @foreach(License license in Model)
   {
-    <li>@Html.ActionLink($"{semester.Term}", "Details", new { id = semester.SemesterId })</li><br>
+    <li>@Html.ActionLink($"{license.Title}", "Details", new { id = license.LicenseId })</li><br>
   }
 </ul>
 
-<p>@Html.ActionLink("Add new semester", "Create")</p><br>
+<p>@Html.ActionLink("Add new license", "Create")</p><br>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

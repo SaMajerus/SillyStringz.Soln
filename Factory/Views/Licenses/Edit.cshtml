@@ -3,18 +3,18 @@
   Layout = "_Layout";
 }
 
-@model Schedule.Models.Semester
+@model Factory.Models.License
 
 <h2>Edit</h2>
 
-<h4>Edit this semester: @Html.DisplayFor(model => model.Term)</h4>
+<h4>Edit this license: @Html.DisplayFor(model => model.Title)</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.SemesterId)
+  @Html.HiddenFor(model => model.LicenseId)
 
-  @Html.LabelFor(model => model.Term)
-  @Html.EditorFor(model => model.Term)
+  @Html.LabelFor(model => model.Title)
+  @Html.EditorFor(model => model.Title)
 
   <input type="submit" value="Save" />
 }
