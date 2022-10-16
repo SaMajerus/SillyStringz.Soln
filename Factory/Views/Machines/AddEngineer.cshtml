@@ -14,9 +14,9 @@
   @Html.HiddenFor(model => model.MachineId)
 
   @Html.Label("Select engineer")
-  @Html.DropDownList("EngrId")
+  @Html.DropDownList("EngineerId")  //Looks for 'ViewBag.EngineerId' [on Ln 76 of ''MachinesController.cs''] and populates SelectList. 
 
-  <input type="submit" value="Save" />
+  <input type="submit" value="Save" /> 
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
