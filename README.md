@@ -37,6 +37,7 @@ Note that this application is the Minimum-Viable-Product iteration, meaning that
 
 Resources I found to be helpful whilst developing this application-- 
 * [Configuring a Primary Key - Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/keys?tabs=data-annotations#configuring-a-primary-key)
+* [Help with an 'Internal Server Error' that occurs when population of a SelectList dropdown element fails](https://stackoverflow.com/questions/26585495/there-is-no-viewdata-item-of-type-ienumerableselectlistitem-that-has-the-key)
 
 
 ## Setup/Installation Requirements
