@@ -1,8 +1,8 @@
-# Eau Claire's Hair Salon -- Stylist & Client Tracker
+# Sillystringz Factory Floor Manager
 
 #### By Sam Majerus
 
-#### A web application that Claire can use to keep track of her Stylist employees, and which clients each Stylist has.   
+#### A web application that Doctor Sillystringz uses to manage his factory. Provides information on currently-employed Engineers, installed Machines, the Engineers' respective Repair Licenses/Certifications, and more.   
 <br>
 
 ## Technologies Used
@@ -13,11 +13,14 @@
 * ASP.NET Core
 * ASP.NET Core - MVC 
 * MySQL
+* SQL Database (DB) files 
 * Razor
-* Entity Framework Core
+* Entity Framework Core  (also known as 'EF Core')
+* EF Core - DB Migrations
 * ViewBag
 * Layout files 
 * CSHTML5 
+* JSON
 * Git Bash (Used in: Local Cmd-line Terminal, navigation of local directories)
 * GitHub (Remote repositories)
 * GitHub template repository (MSTest)
@@ -26,10 +29,10 @@
 
 ## Description
 
-The program starts by printing out a greeting to the User on the Splash page. Then the user can navigate to the page where the Vendors are listed. The blue text strings are indeed hyperlinks, but they function more like buttons in this context. Thus, the user clicks on those to navigate to the desired pages. 
-The Vendors list will start off blank, so the user has to create a new vendor before they can proceed further. Once that is done, they can add a New Order for that Vendor.   (Please note that order information is only accessible via the given Vendor's page, on which their List of Orders is displayed. The user can navigate back there from the page that comes up after adding the Order as follows: First, click the button to go back to the List of Vendors. Then, click the Vendor that the Order was added for. Lastly, click on the desired Order from those Listed.) 
+The program starts by printing out a greeting to the User on the Splash page. From here, the User can navigate to one of 3 places: a page that lists the Machines, one that lists the Engineers, or one that lists the Licenses. (The blue text strings are indeed hyperlinks, but they function more like buttons in this context.) 
 
-Note that this application is the Minimum-Viable-Product iteration, and so features are minimal. 
+
+Note that this application is the Minimum-Viable-Product iteration, meaning that the features available here are of the Baseline variety. 
 
 
 Resources I found to be helpful whilst developing this application-- 
@@ -66,7 +69,7 @@ Resources I found to be helpful whilst developing this application--
     * B. Importing the SQL file  (numbering continues from part A)  
       3)  In the Navigator on the left-hand side, click the Administration tab. Then, under the 'Management' subsection, click 'Data Import/Restore'. 
       4)  Under 'Import Options', select 'Import from Self-Contained File'.  Then, at the end of the directory address box, navigate to the Top Level of the project, and select the SQL file.   
-        * Last parts of the address should be:  '[containing folder(s)]\EauClaire-Salon\sam_majerus.sql'.
+        * Last parts of the address should be:  '[containing folder(s)]\SillyStringz.Soln\sam_majerus_wk12.sql'.
       5)  Next under 'Default Schema to be Imported To', click the 'New' button and enter the name 'Sam_Majerus'.  Then, select this new Schema from the dropdown. 
       6)  Lastly, under the box titled 'Imp... Schema Objects', click on the dropdown and select 'Dump Structure Only'.  Then click the 'Start Import' button. 
   At this point, simply minimize MySQL Workbench.  
@@ -83,7 +86,7 @@ Whilst viewing the 'HairSalon' directory  (~/HairSalon), enter the command 'code
   }
 }
 ```
-Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your username and password for MySQL, respectively, and then save the file. 
+Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your MySQL username and password, respectively, and then save the file (Ctrl-S). 
 <br>
 
 
@@ -101,7 +104,7 @@ Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your username and passw
   * 9 times out of 10, an error message will appear if you try to run the program whilst being in the wrong directory location.  
   To make sure you're in the right place, do the following. 
     * In your Git Bash command line, enter the command  'pwd'.  The Path leading to your current Folder (a.k.a. Directory) location will be printed out.   
-    If the last 2 Directories in that Path DO NOT match the following snippet, then you're located in the wrong place. ('CONTAINER' represents your Containing Folder, which is what Contains the Program's Parent/Root folder):          .../CONTAINER/BkyVendors/HairSalon 
+    If the last 3 Directories in that Path DO NOT match the following snippet, then you're located in the wrong place. ('CONTAINER' represents your Containing Folder, which is what Contains the Program's Parent/Root folder):          .../CONTAINER/SillyStringz.Soln/Factory 
 
   * If you're in the Right Place:  try entering the command  'dotnet restore'.  Once its process is completed, try entering  'dotnet run' again. 
 
@@ -132,4 +135,4 @@ Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your username and passw
 
 Email me at ladolego@gmail.com for questions, ideas, concerns, or even any issues that you run into. You may also clone or Fork the content in this Repo to fiddle around with it, if you like.
 
-Licensed through MIT. Copyright (c) 10/07/2022, Samuel Majerus.
+Licensed through MIT. Copyright (c) 10/14/2022, Samuel Majerus.
