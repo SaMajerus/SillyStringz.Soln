@@ -41,7 +41,7 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
-        .Include(semester => semester.JoinLicEngr)
+        .Include(license => license.JoinLicEngr)
         .ThenInclude(join => join.License)  //Connected to:  Details View, Ln 25 
         .Include(engineer => engineer.JoinMachEngr)
         .ThenInclude(join => join.Machine)  //Connected to:  Details View, Ln 10 
@@ -81,7 +81,7 @@ namespace Factory.Controllers
     public ActionResult AddMachine(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);  //Calls the Engineer which we'll be adding a Machine for. 
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");  //Connects to:  ../Views/Engineers/AddMachine.cshtml, Ln 16. 
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");  //Connects to:  ../Views/Engineers/AddMachine.cshtml, Ln 17. 
       return View(thisEngineer); 
     }
 
@@ -103,7 +103,7 @@ namespace Factory.Controllers
       return View(thisEngineer);
     }
 
-    [HttpPost]
+    [HttpPost]  //(Destination for Views/Engineers/AddLicense.cshtml, Ln 19)
     public ActionResult AddLicense(Engineer engineer, int LicenseId)
     {
       if (LicenseId != 0)
