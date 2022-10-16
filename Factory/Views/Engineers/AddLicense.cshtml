@@ -14,7 +14,7 @@
   @Html.HiddenFor(model => model.EngineerId)
 
   @Html.Label("Select license")
-  @Html.DropDownList("LicenseId")
+  @Html.DropDownList("LicenseId")  //Looks for 'ViewBag.LicenseId' [on Ln 102 of ''EngineersController.cs''] and populates SelectList.
 
   <input type="submit" value="Save" />
 }
