@@ -12,6 +12,7 @@
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.LicenseId)
+  @Html.HiddenFor(model => model.EngineerId)
 
   @Html.Label("Select engineer")
   @Html.DropDownList("EngineerId")
