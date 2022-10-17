@@ -90,7 +90,7 @@ namespace Factory.Controllers
     {
       if (MachineId != 0)
       {
-        _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngrId = engineer.EngineerId});
+        _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
@@ -108,7 +108,7 @@ namespace Factory.Controllers
     {
       if (LicenseId != 0)
       {
-        _db.LicenseEngineer.Add(new LicenseEngineer() { LicenseId = LicenseId, EngrId = engineer.EngineerId});
+        _db.LicenseEngineer.Add(new LicenseEngineer() { LicenseId = LicenseId, EngineerId = engineer.EngineerId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");

@@ -33,7 +33,7 @@ namespace Factory.Controllers
     {
       if (EngineerId != 0)
       {
-        _db.LicenseEngineer.Add(new LicenseEngineer() { EngrId = EngineerId, LicenseId = license.LicenseId });
+        _db.LicenseEngineer.Add(new LicenseEngineer() { EngineerId = EngineerId, LicenseId = license.LicenseId });
         _db.SaveChanges();
       }
       _db.Licenses.Add(license);
@@ -84,7 +84,7 @@ namespace Factory.Controllers
     public ActionResult AddEngineer(int id)
     {
       var thisLicense = _db.Licenses.FirstOrDefault(license => license.LicenseId == id);  //Calls the license which we'll be adding a Engineer for. 
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Title");
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngrId", "Title");
       return View(thisLicense);
     }
 
@@ -93,11 +93,12 @@ namespace Factory.Controllers
     {
       if (EngineerId != 0)
       {
-        _db.LicenseEngineer.Add(new LicenseEngineer() { EngrId = EngineerId, LicenseId = license.LicenseId});
+        _db.LicenseEngineer.Add(new LicenseEngineer() { EngineerId = EngineerId, LicenseId = license.LicenseId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
     }
+    
     public ActionResult AddMachine(int id)
     {
       var thisLicense = _db.Licenses.FirstOrDefault(license => license.LicenseId == id); 

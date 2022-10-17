@@ -35,7 +35,7 @@ namespace Factory.Controllers
       _db.SaveChanges();
       if (EngineerId != 0)
       {
-        _db.EngineerMachine.Add(new EngineerMachine() { EngrId = EngineerId, MachineId = mach.MachineId});
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = mach.MachineId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
@@ -63,7 +63,7 @@ namespace Factory.Controllers
     {
       if (EngineerId != 0)
       {
-        _db.EngineerMachine.Add(new EngineerMachine() { EngrId = EngineerId, MachineId = mach.MachineId});
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = mach.MachineId});
       }
       _db.Entry(mach).State = EntityState.Modified;  //Updates the entry(-ies) in the database. 
       _db.SaveChanges(); //Saves changes to database 
@@ -82,7 +82,7 @@ namespace Factory.Controllers
     {
       if (EngineerId != 0)
       {
-        _db.EngineerMachine.Add(new EngineerMachine() { EngrId = EngineerId, MachineId = mach.MachineId});
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = mach.MachineId});
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
@@ -111,6 +111,7 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
     public ActionResult AddLicense(int id)
     {
       var thisMachine = _db.Machines.FirstOrDefault(mach => mach.MachineId == id); 
