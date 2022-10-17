@@ -29,7 +29,7 @@ namespace Factory.Controllers
     }
 
     [HttpPost]  //(Destination for Views/Licenses/Create.cshtml, Ln 16) 
-    public ActionResult Create(License license, string term, int LicenseId, int EngineerId)
+    public ActionResult Create(License license, string title, int LicenseId, int EngineerId)
     {
       if (EngineerId != 0)
       {
