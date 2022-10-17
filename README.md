@@ -128,7 +128,7 @@ Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your MySQL username and
 
 
 ## Known Bugs
-* When a user tries to Add a License or a Machine for a given Engineer entry, neither change is saved... or something -- no errors appear after clicking the 'Save' button, but the default 'empty-list' message is still there on the Engineer's 'Details' View in both cases.  
+* When a user tries to Add a License or a Machine for a given Engineer entry, both changes are saved.  HOWEVER, the default 'empty-list' message is still displayed on the Engineer's 'Details' View for both.  
 <br>
 
 
