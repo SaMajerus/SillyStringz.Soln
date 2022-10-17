@@ -1,4 +1,3 @@
-@* <link rel="stylesheet" href="~/css/edit.css"> *@
 @{
   Layout = "_Layout";
 }
@@ -16,9 +15,6 @@
   @Html.Label("", "Change Machine Name", new {@class="labelfor"})
   @Html.EditorFor(model => model.Name)
   
-  @* @Html.Label("Change machine grade")
-  @Html.EditorFor(model => model.Grade) *@
-
   <input type="submit" value="Save" />
 }
 

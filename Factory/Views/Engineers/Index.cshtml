@@ -1,15 +1,11 @@
-@* <link rel="stylesheet" href="~/css/index.css"> *@
 @{
   Layout = "_Layout";
 }
-
-@* <div class="box"></div> *@
 
 @using Factory.Models;
 @model List<Factory.Models.Engineer>;
 
 <h1>List of Engineers:</h1><br>
-
 <ul>
   @foreach(Engineer engineer in Model)
   {
