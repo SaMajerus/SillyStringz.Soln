@@ -30,32 +30,13 @@
 ## Description
 
 The program starts by printing out a greeting to the User on the Splash page. From here, the User can navigate to one of 3 places: a page that lists the Machines, one that lists the Engineers, or one that lists the Licenses. (The blue text strings are indeed hyperlinks, but they function more like buttons in this context.) 
-Note that this application is the Minimum-Viable-Product iteration, meaning that the features available here are of the Baseline variety. 
-
-
-Current '' CAN/CAN'T '' cases--
-User CAN: 
-  * Add a Machine and/or License for a given Engineer. 
-  * Add a Machine for a given License. 
-  * Add a License for a given Machine.
-  * Add a Machine with an empty list of Engineers.
-  * Add an Engineer with an empty list of Machines. 
-  * Add a License for a given Engineer. (From the Engineer's 'Details' page.)
-  * Add one or more Machines for a given Engineer (with-/without- Licenses assigned to the Engineers and/or to the Machines).
-  * Delete a given Engineer from the list of Engineers (with-/without- assigned Licenses and/or Machines). 
-  * Delete a given Machine from the list of Machines (with-/without- assigned Engineers and/or Licenses).
-  * Delete a given License from the list of Licenses (with-[[without- assigned Engineers and/or Machines). 
-
-
-User CAN'T: 
-  * Add an Engineer for a given License (with-/without- assigned Machines). 
-  * Delete an Engineer, go back a couple of pages, and access that employee's Details page. 
+Note that this application is the Minimum-Viable-Product iteration, meaning that the features available here are of the Baseline variety. <br><br>
 
 
 
 Resources I found to be helpful whilst developing this application-- 
 * [Configuring a Primary Key - Microsoft Learn](https://learn.microsoft.com/en-us/ef/core/modeling/keys?tabs=data-annotations#configuring-a-primary-key)
-* [Help with an 'Internal Server Error' that occurs when population of a SelectList dropdown element fails](https://stackoverflow.com/questions/26585495/there-is-no-viewdata-item-of-type-ienumerableselectlistitem-that-has-the-key)
+* [Help with an 'Internal Server Error' that occurs when population of a SelectList dropdown element fails](https://stackoverflow.com/questions/26585495/there-is-no-viewdata-item-of-type-ienumerableselectlistitem-that-has-the-key) <br><br><br>
 
 
 ## Setup/Installation Requirements
@@ -110,7 +91,6 @@ Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your MySQL username and
 
 
 * Running the Program 
-  <!-- IMPORTANT: If your current directory location is not the same as it was for the most recent Step, the instructions that follow WILL NOT WORK.  -->
   
   * In your GIT BASH command line, enter this command:  'dotnet run' .   The files will be compiled and then the application will be started. 
   In the terminal, once the last line of prompts says something like    ''Ctrl-C to end the Application'',  'Ctrl + Left-click' the 'localhost:5000' link. A new tab will open in your browser -- and the rest should be self-explanitory. 
