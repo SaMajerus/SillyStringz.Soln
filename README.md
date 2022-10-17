@@ -30,9 +30,18 @@
 ## Description
 
 The program starts by printing out a greeting to the User on the Splash page. From here, the User can navigate to one of 3 places: a page that lists the Machines, one that lists the Engineers, or one that lists the Licenses. (The blue text strings are indeed hyperlinks, but they function more like buttons in this context.) 
-
-
 Note that this application is the Minimum-Viable-Product iteration, meaning that the features available here are of the Baseline variety. 
+
+
+Current '' CAN/CAN'T '' situations--
+User CAN: 
+  * Add a Machine or License for a given Engineer. 
+  * Add a Machine for a given License.
+
+They CAN'T: 
+  * Add an Engineer for a given License. 
+  
+
 
 
 Resources I found to be helpful whilst developing this application-- 
@@ -128,7 +137,7 @@ Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your MySQL username and
 
 
 ## Known Bugs
-* When a user tries to Add a License or a Machine for a given Engineer entry, both changes are saved.  HOWEVER, the default 'empty-list' message is still displayed on the Engineer's 'Details' View for both.  
+* When user tries to add an Engineer for a given License entry, they get an 'Internal Server Error' (ISE) that says "NullReferenceException: Object reference not set to an instance of an object."   Strangely, this does not happen when they add a Machine for the given License entry. 
 <br>
 
 
