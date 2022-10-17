@@ -33,14 +33,23 @@ The program starts by printing out a greeting to the User on the Splash page. Fr
 Note that this application is the Minimum-Viable-Product iteration, meaning that the features available here are of the Baseline variety. 
 
 
-Current '' CAN/CAN'T '' situations--
+Current '' CAN/CAN'T '' cases--
 User CAN: 
-  * Add a Machine or License for a given Engineer. 
-  * Add a Machine for a given License.
+  * Add a Machine and/or License for a given Engineer. 
+  * Add a Machine for a given License. 
+  * Add a License for a given Machine.
+  * Add a Machine with an empty list of Engineers.
+  * Add an Engineer with an empty list of Machines. 
+  * Add a License for a given Engineer. (From the Engineer's 'Details' page.)
+  * Add one or more Machines for a given Engineer (with-/without- Licenses assigned to the Engineers and/or to the Machines).
+  * Delete a given Engineer from the list of Engineers (with-/without- assigned Licenses and/or Machines). 
+  * Delete a given Machine from the list of Machines (with-/without- assigned Engineers and/or Licenses).
+  * Delete a given License from the list of Licenses (with-[[without- assigned Engineers and/or Machines). 
 
-They CAN'T: 
-  * Add an Engineer for a given License. 
-  
+
+User CAN'T: 
+  * Add an Engineer for a given License (with-/without- assigned Machines). 
+  * Delete an Engineer, go back a couple of pages, and access that employee's Details page. 
 
 
 
@@ -137,7 +146,7 @@ Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your MySQL username and
 
 
 ## Known Bugs
-* When user tries to add an Engineer for a given License entry, they get an 'Internal Server Error' (ISE) that says "NullReferenceException: Object reference not set to an instance of an object."   Strangely, this does not happen when they add a Machine for the given License entry. 
+* When user tries to add an Engineer for a given License entry, they get an 'Internal Server Error' (ISE) that says "NullReferenceException: Object reference not set to an instance of an object."   Strangely, this does not happen when they add a Machine for the given License entry. (Note: this only happens when clicking the ActionLink while on the 'Details' View-page for a given License.) 
 <br>
 
 
