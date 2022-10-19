@@ -126,7 +126,7 @@ Replace 'YOUR-SQL-USERNAME' and 'YOUR-SQL-PASSWORD' with your MySQL username and
 
 
 ## Known Bugs
-* When user tries to add an Engineer for a given License entry, they get an 'Internal Server Error' (ISE) that says "NullReferenceException: Object reference not set to an instance of an object."   Strangely, this does not happen when they add a Machine for the given License entry. (Note: this only happens when clicking the ActionLink while on the 'Details' View-page for a given License.) 
+* N/A
 <br>
 
 
